@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mansi Ravrani - Graphic, Motion & Video Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-green': '#264653',
+                        'teal': '#2a9d8f',
+                        'yellow': '#e9c46a',
+                        'orange': '#f4a261',
+                        'coral': '#e76f51',
+                        'cream': '#fefcf3',
+                        'light-teal': 'rgba(42, 157, 143, 0.1)',
+                        'dark-overlay': 'rgba(38, 70, 83, 0.9)',
+                        'skill-1': '#e6f4f3',
+                        'skill-2': '#fdf3d8',
+                    },
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'inter': ['Inter', 'sans-serif']
+                    },
+                    animation: {
+                        'pulse': 'pulse 4s ease-in-out infinite',
+                        'rotate': 'rotate 20s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'slideUp': 'slideUp 1s ease-out forwards',
+                        'spin': 'spin 1s linear infinite',
+                        'floatSlow': 'floatSlow 30s ease-in-out infinite',
+                        'wiggle': 'wiggle 0.5s ease-in-out infinite',
+                        'bounce': 'bounce 0.8s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        pulse: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.05)' },
+                        },
+                        rotate: {
+                            from: { transform: 'rotate(0deg)' },
+                            to: { transform: 'rotate(360deg)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        slideUp: {
+                            from: {
+                                opacity: 0,
+                                transform: 'translateY(50px)',
+                            },
+                            to: {
+                                opacity: 1,
+                                transform: 'translateY(0)',
+                            },
+                        },
+                        spin: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' },
+                        },
+                        floatSlow: {
+                            '0%, 100%': { transform: 'translate(0, 0) rotate(0deg)' },
+                            '50%': { transform: 'translate(-30px, -30px) rotate(180deg)' },
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' },
+                        },
+                        bounce: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        /* Fix for white space on mobile */
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+        
+        img, video {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        section, .container {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        body {
+            scroll-behavior: smooth;
+            background-color: #fefcf3;
+        }
+        
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #e76f51;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            mix-blend-mode: difference;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(233, 196, 106, 0.1) 0%, transparent 70%);
+            animation: floatSlow 20s ease-in-out infinite;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 60%;
+            height: 120%;
+            background: radial-gradient(ellipse, rgba(231, 111, 81, 0.1) 0%, transparent 70%);
+            animation: floatSlow 25s ease-in-out infinite reverse;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(180deg, #2a9d8f 0%, transparent 100%);
+            opacity: 0.1;
+        }
+        
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(42, 157, 143, 0.1) 0%, transparent 70%);
+            animation: floatSlow 30s ease-in-out infinite;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #2a9d8f, #e76f51);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(42, 157, 143, 0.1) 0%, transparent 70%);
+            transition: all 0.5s ease;
+            transform: scale(0);
+        }
+        
+        .service-card:hover::before {
+            transform: scale(1);
+        }
+        
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in-left.animated {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in-right.animated {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .artwork-overlay {
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+        
+        .artwork-item:hover .artwork-overlay {
+            opacity: 1;
+        }
+        
+        .artwork-title {
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+            opacity: 0;
+        }
+        
+        .artwork-item:hover .artwork-title {
+            transform: translateY(0);
+            opacity: 1;
+            transition-delay: 0.2s;
+        }
+        
+        .artwork-category {
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+            opacity: 0;
+        }
+        
+        .artwork-item:hover .artwork-category {
+            transform: translateY(0);
+            opacity: 1;
+            transition-delay: 0.3s;
+        }
+        
+        .view-btn {
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+            opacity: 0;
+        }
+        
+        .artwork-item:hover .view-btn {
+            transform: translateY(0);
+            opacity: 1;
+            transition-delay: 0.4s;
+        }
+        
+        .portfolio-view-btn {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .portfolio-item:hover .portfolio-view-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2a9d8f, #e76f51);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: #e76f51;
+            border-radius: 1px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #2a9d8f, #e76f51);
+            border-radius: 2px;
+        }
+        
+        .hero-circle::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            width: 60%;
+            height: 60%;
+            border-radius: 50%;
+            background: rgba(254, 252, 243, 0.2);
+            animation: rotate 20s linear infinite;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .social-link.behance:hover {
+            background: linear-gradient(45deg, #1769ff, #2132a8);
+        }
+        
+        .social-link.dribbble:hover {
+            background: linear-gradient(45deg, #ea4c89, #c32361);
+        }
+        
+        .social-link.instagram:hover {
+            background: linear-gradient(45deg, #405de6, #833ab4, #e1306c, #fd1d1d);
+        }
+        
+        .social-link.linkedin:hover {
+            background: linear-gradient(45deg, #0077b5, #00a0dc);
+        }
+        
+        .social-link.youtube:hover {
+            background: linear-gradient(45deg, #ff0000, #cc0000);
+        }
+        
+        .social-link.vimeo:hover {
+            background: linear-gradient(45deg, #1ab7ea, #13a3cc);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content {
+                padding-top: 100px;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero, .about, .services, .skills, .portfolio, .video-showcase, .design-work, .contact {
+                padding-top: 5rem;
+                padding-bottom: 5rem;
+            }
+            .portfolio-grid, .artwork-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* New animations */
+        .social-icon {
+            transition: all 0.4s ease;
+        }
+        
+        .social-link:hover .social-icon {
+            animation: bounce 0.8s ease-in-out;
+            transform: scale(1.2);
+        }
+        
+        .featured-item {
+            transition: all 0.5s ease;
+        }
+        
+        .featured-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        /* Skill tags with better contrast */
+        .skill-tag {
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        /* Form styling */
+        .contact-form input,
+        .contact-form textarea {
+            color: #fefcf3 !important;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(254, 252, 243, 0.7) !important;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            background-color: rgba(254, 252, 243, 0.15) !important;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .skill-item {
+            background: white;
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .design-work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .design-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .design-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .design-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .design-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .design-info {
+            padding: 20px;
+            background: white;
+        }
+        
+        .design-category {
+            color: #e76f51;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        
+        .design-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #264653;
+        }
+        
+        /* Success message styling */
+        .success-message {
+            display: none;
+            background: rgba(42, 157, 143, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(254, 252, 243, 0.2);
+        }
+        
+        .success-icon {
+            font-size: 5rem;
+            color: #2a9d8f;
+            margin-bottom: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .success-message h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #fefcf3;
+            margin-bottom: 15px;
+        }
+        
+        .success-message p {
+            font-size: 1.1rem;
+            color: rgba(254, 252, 243, 0.9);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body class="font-inter text-dark-green overflow-x-hidden">
+    <!-- Loading Overlay -->
+    <div id="loading" class="fixed inset-0 bg-cream z-[10000] flex items-center justify-center transition-opacity duration-500">
+        <div class="w-[60px] h-[60px] border-4 border-light-teal border-t-teal rounded-full animate-spin"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full py-6 px-6 md:px-12 bg-cream/95 backdrop-blur-md z-[1000] transition-all duration-400 border-b border-light-teal">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center">
+            <a href="#" class="logo font-playfair text-2xl md:text-[1.8rem] font-bold text-dark-green relative">Mansi Ravrani</a>
+            <ul class="nav-links hidden md:flex list-none gap-8">
+                <li><a href="#home" class="text-dark-green font-medium text-[0.95rem] relative py-2">Home</a></li>
+                <li><a href="#about" class="text-dark-green font-medium text-[0.95rem] relative py-2">About</a></li>
+                <li><a href="#services" class="text-dark-green font-medium text-[0.95rem] relative py-2">Services</a></li>
+                <li><a href="#skills" class="text-dark-green font-medium text-[0.95rem] relative py-2">Skills</a></li>
+                <li><a href="#portfolio" class="text-dark-green font-medium text-[0.95rem] relative py-2">Portfolio</a></li>
+                <li><a href="#design-work" class="text-dark-green font-medium text-[0.95rem] relative py-2">Designs</a></li>
+                <li><a href="#contact" class="text-dark-green font-medium text-[0.95rem] relative py-2">Contact</a></li>
+            </ul>
+            <button id="mobileMenuBtn" class="md:hidden text-dark-green text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Navigation -->
+    <div id="mobileNav" class="fixed top-0 -right-full w-4/5 h-screen bg-cream z-[1000] transition-all duration-500 shadow-2xl p-6 flex flex-col">
+        <button id="closeMobileMenu" class="absolute top-6 right-6 text-dark-green text-2xl">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="mobile-nav-links list-none mt-24">
+            <li class="mb-6"><a href="#home" class="text-dark-green font-medium text-xl block py-3 border-b border-dark-green/10 transition-all duration-300">Home</a></li>
+            <li class="mb-6"><a href="#about" class="text-dark-green font-medium text-xl block py-3 border-b border-dark-green/10 transition-all duration-300">About</a></li>
+            <li class="mb-6"><a href="#services" class="text-dark-green font-medium text-xl block py-3 border-b border-dark-green/10 transition-all duration-300">Services</a></li>
+            <li class="mb-6"><a href="#skills" class="text-dark-green font-medium text-xl block py-3 border-b border-dark-green/10 transition-all duration-300">Skills</a></li>
+            <li class="mb-6"><a href="#portfolio" class="text-dark-green font-medium text-xl block py-3 border-b border-dark-green/10 transition-all duration-300">Portfolio</a></li>
+            <li class="mb-6"><a href="#design-work" class="text-dark-green font-medium text-xl block py-3 border-b border-dark-green/10 transition-all duration-300">Designs</a></li>
+            <li><a href="#contact" class="text-dark-green font-medium text-xl block py-3 border-b border-dark-green/10 transition-all duration-300">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero min-h-screen flex items-center relative overflow-hidden bg-gradient-to-br from-dark-green to-teal">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 items-center relative z-[2] py-20">
+            <div class="hero-text text-center md:text-left">
+                <h1 class="font-playfair font-bold text-[3.5rem] sm:text-6xl md:text-7xl leading-tight mb-4 bg-gradient-to-r from-cream to-yellow bg-clip-text text-transparent animate-[slideUp_1s_ease-out]">Mansi Ravrani</h1>
+                <p class="text-xl md:text-2xl text-yellow font-light tracking-[0.5px] mb-8 animate-[slideUp_1s_ease-out_0.2s_both]"
+                   style="font-size: clamp(1.3rem, 3vw, 1.8rem);">
+                    Graphic, Motion & Video Designer
+                </p>
+                <p class="text-[1.1rem] opacity-90 leading-[1.8] mb-12 animate-[slideUp_1s_ease-out_0.4s_both]"
+                   style="color: rgba(254, 252, 243, 0.9);">
+                    Bringing ideas to life through stunning visuals, fluid motion, and compelling video narratives. I transform concepts into captivating experiences that resonate with audiences.
+                </p>
+                <div class="cta-buttons flex flex-col sm:flex-row gap-6 justify-center md:justify-start animate-[slideUp_1s_ease-out_0.6s_both]">
+                    <a href="#portfolio" class="cta-button cta-primary px-10 py-4 text-cream font-semibold rounded-full bg-coral shadow-lg shadow-coral/30 transition-all duration-400 hover:bg-orange hover:shadow-coral/40 relative overflow-hidden">View Portfolio</a>
+                    <a href="#contact" class="cta-button cta-secondary px-10 py-4 text-cream font-semibold rounded-full bg-transparent border-2 border-yellow transition-all duration-400 hover:bg-yellow hover:text-dark-green">Let's Collaborate</a>
+                </div>
+            </div>
+            <div class="hero-visual flex justify-center items-center">
+                <div class="hero-circle w-64 h-64 sm:w-80 sm:h-80 md:w-[400px] md:h-[400px] rounded-full bg-gradient-to-r from-yellow to-orange relative overflow-hidden animate-pulse">
+                    <div class="floating-elements absolute inset-0">
+                        <div class="floating-element absolute w-5 h-5 bg-coral rounded-full top-[10%] left-[10%] animate-float"></div>
+                        <div class="floating-element absolute w-[15px] h-[15px] bg-cream rounded-full top-[80%] right-[20%] animate-float animation-delay-2000"></div>
+                        <div class="floating-element absolute w-6 h-6 bg-teal rounded-full top-1/2 right-[10%] animate-float animation-delay-4000"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about py-20 md:py-28 px-6 md:px-12 bg-cream relative">
+        <div class="container max-w-[1400px] mx-auto">
+            <h2 class="section-title font-playfair font-bold text-3xl md:text-4xl text-center mb-16 relative animate-on-scroll">About Me</h2>
+            <div class="about-content grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="about-text fade-in-left">
+                    <h3 class="font-playfair text-3xl md:text-[2.5rem] mb-8 text-dark-green leading-tight">Creating Visual Stories That Move</h3>
+                    <p class="text-lg text-dark-green/80 mb-8 leading-relaxed">I'm a multidisciplinary designer with expertise in graphic design, motion graphics, and video editing. With over 5 years of professional experience, I've helped brands transform their visual identity and connect with their audience through compelling narratives.</p>
+                    <p class="text-lg text-dark-green/80 mb-8 leading-relaxed">My design philosophy centers around storytelling. Whether it's a logo, animation, or full video production, I believe every visual element should contribute to a cohesive narrative that resonates emotionally with the viewer.</p>
+                </div>
+                <div class="about-visual fade-in-right">
+                    <div class="stats-grid grid grid-cols-2 md:grid-cols-4 gap-8">
+                        <div class="stat-card bg-white p-8 md:p-10 rounded-2xl text-center shadow-xl transition-all duration-400 hover:-translate-y-2 hover:shadow-2xl relative overflow-hidden">
+                            <div class="stat-number font-playfair font-bold text-4xl text-coral mb-2">200+</div>
+                            <div class="stat-label text-sm text-dark-green font-medium uppercase tracking-wider">Projects</div>
+                        </div>
+                        <div class="stat-card bg-white p-8 md:p-10 rounded-2xl text-center shadow-xl transition-all duration-400 hover:-translate-y-2 hover:shadow-2xl relative overflow-hidden">
+                            <div class="stat-number font-playfair font-bold text-4xl text-coral mb-2">5+</div>
+                            <div class="stat-label text-sm text-dark-green font-medium uppercase tracking-wider">Years</div>
+                        </div>
+                        <div class="stat-card bg-white p-8 md:p-10 rounded-2xl text-center shadow-xl transition-all duration-400 hover:-translate-y-2 hover:shadow-2xl relative overflow-hidden">
+                            <div class="stat-number font-playfair font-bold text-4xl text-coral mb-2">150+</div>
+                            <div class="stat-label text-sm text-dark-green font-medium uppercase tracking-wider">Clients</div>
+                        </div>
+                        <div class="stat-card bg-white p-8 md:p-10 rounded-2xl text-center shadow-xl transition-all duration-400 hover:-translate-y-2 hover:shadow-2xl relative overflow-hidden">
+                            <div class="stat-number font-playfair font-bold text-4xl text-coral mb-2">35+</div>
+                            <div class="stat-label text-sm text-dark-green font-medium uppercase tracking-wider">Awards</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services py-20 md:py-28 px-6 md:px-12 relative bg-gradient-to-br from-light-teal/50 to-yellow/5">
+        <div class="container max-w-[1400px] mx-auto">
+            <h2 class="section-title font-playfair font-bold text-3xl md:text-4xl text-center mb-16 relative animate-on-scroll">Services</h2>
+            <div class="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-24">
+                <div class="service-card bg-white p-12 rounded-[25px] shadow-xl transition-all duration-500 relative overflow-hidden cursor-pointer animate-on-scroll hover:-translate-y-4 hover:shadow-2xl">
+                    <div class="service-icon w-[100px] h-[100px] rounded-full mb-10 mx-auto flex items-center justify-center text-white text-[2.5rem] relative z-[2] transition-all duration-400 bg-gradient-to-br from-teal to-dark-green hover:rotate-[360deg]">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="font-playfair text-[1.8rem] mb-6 text-dark-green relative z-[2]">Graphic Design</h3>
+                    <p class="text-dark-green/80 leading-relaxed relative z-[2]">Creating comprehensive visual identities that capture your brand's essence, from logo design to complete brand guidelines that ensure consistency across all touchpoints.</p>
+                </div>
+                <div class="service-card bg-white p-12 rounded-[25px] shadow-xl transition-all duration-500 relative overflow-hidden cursor-pointer animate-on-scroll hover:-translate-y-4 hover:shadow-2xl">
+                    <div class="service-icon w-[100px] h-[100px] rounded-full mb-10 mx-auto flex items-center justify-center text-white text-[2.5rem] relative z-[2] transition-all duration-400 bg-gradient-to-br from-yellow to-orange hover:rotate-[360deg]">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3 class="font-playfair text-[1.8rem] mb-6 text-dark-green relative z-[2]">Motion Design</h3>
+                    <p class="text-dark-green/80 leading-relaxed relative z-[2]">Creating engaging animations, kinetic typography, and motion graphics that bring your message to life and capture audience attention.</p>
+                </div>
+                <div class="service-card bg-white p-12 rounded-[25px] shadow-xl transition-all duration-500 relative overflow-hidden cursor-pointer animate-on-scroll hover:-translate-y-4 hover:shadow-2xl">
+                    <div class="service-icon w-[100px] h-[100px] rounded-full mb-10 mx-auto flex items-center justify-center text-white text-[2.5rem] relative z-[2] transition-all duration-400 bg-gradient-to-br from-coral to-orange hover:rotate-[360deg]">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="font-playfair text-[1.8rem] mb-6 text-dark-green relative z-[2]">Video Editing</h3>
+                    <p class="text-dark-green/80 leading-relaxed relative z-[2]">Professional video editing services including color grading, sound design, and visual effects to create compelling narratives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="skills py-20 md:py-28 px-6 md:px-12 bg-cream">
+        <div class="container max-w-[1400px] mx-auto">
+            <h2 class="section-title font-playfair font-bold text-3xl md:text-4xl text-center mb-16 relative animate-on-scroll">My Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div class="fade-in-left">
+                    <h3 class="font-playfair text-2xl text-dark-green mb-6">Creative Software</h3>
+                    <div class="skill-grid">
+                        <div class="skill-item">Adobe After Effects</div>
+                        <div class="skill-item">Premiere Pro</div>
+                        <div class="skill-item">Photoshop</div>
+                        <div class="skill-item">Illustrator</div>
+                        <div class="skill-item">Figma</div>
+                    </div>
+                </div>
+                <div class="fade-in-right">
+                    <h3 class="font-playfair text-2xl text-dark-green mb-6">Specializations</h3>
+                    <div class="skill-grid">
+                        <div class="skill-item">3D Motion Graphics</div>
+                        <div class="skill-item">Visual Effects</div>
+                        <div class="skill-item">Typography</div>
+                        <div class="skill-item">Color Grading</div>
+                        <div class="skill-item">Video Editing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio py-20 md:py-28 px-6 md:px-12 bg-gradient-to-br from-light-teal/50 to-yellow/5">
+        <div class="container max-w-[1400px] mx-auto">
+            <h2 class="section-title font-playfair font-bold text-3xl md:text-4xl text-center mb-16 relative animate-on-scroll">Featured Work</h2>
+            
+            <div class="portfolio-filter flex justify-center gap-4 md:gap-8 my-16 flex-wrap">
+                <button class="filter-btn active px-6 py-3 border-2 border-teal bg-teal text-white font-medium rounded-full cursor-pointer transition-all duration-300" data-filter="all">All Work</button>
+                <button class="filter-btn px-6 py-3 border-2 border-teal bg-transparent text-teal font-medium rounded-full cursor-pointer transition-all duration-300 hover:bg-teal hover:text-white" data-filter="graphic">Graphic</button>
+                <button class="filter-btn px-6 py-3 border-2 border-teal bg-transparent text-teal font-medium rounded-full cursor-pointer transition-all duration-300 hover:bg-teal hover:text-white" data-filter="motion">Motion</button>
+                <button class="filter-btn px-6 py-3 border-2 border-teal bg-transparent text-teal font-medium rounded-full cursor-pointer transition-all duration-300 hover:bg-teal hover:text-white" data-filter="video">Video</button>
+            </div>
+
+            <div class="portfolio-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-16">
+                <div class="portfolio-item featured-item rounded-[25px] overflow-hidden h-[350px] cursor-pointer transition-all duration-500 shadow-xl animate-on-scroll relative" data-category="graphic">
+                    <div class="portfolio-bg absolute inset-0 opacity-90 transition-all duration-500 bg-gradient-to-br from-teal to-dark-green"></div>
+                    <div class="portfolio-content absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-[2] w-[90%]">
+                        <div class="portfolio-tags flex justify-center gap-2 mb-8 flex-wrap">
+                            <span class="portfolio-tag px-3 py-1 bg-white/20 rounded-xl text-xs backdrop-blur">Branding</span>
+                            <span class="portfolio-tag px-3 py-1 bg-white/20 rounded-xl text-xs backdrop-blur">Logo</span>
+                        </div>
+                        <h3 class="font-playfair text-2xl mb-4">Tech Startup Identity</h3>
+                        <p class="mb-8 opacity-90">Complete visual identity for an innovative technology startup.</p>
+                        <a href="#" class="portfolio-view-btn px-8 py-3 bg-white/20 text-white border border-white/30 rounded-[25px] font-medium transition-all duration-300 backdrop-blur hover:bg-white hover:text-dark-green">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item featured-item rounded-[25px] overflow-hidden h-[350px] cursor-pointer transition-all duration-500 shadow-xl animate-on-scroll relative" data-category="motion">
+                    <div class="portfolio-bg absolute inset-0 opacity-90 transition-all duration-500 bg-gradient-to-br from-yellow to-orange"></div>
+                    <div class="portfolio-content absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-[2] w-[90%]">
+                        <div class="portfolio-tags flex justify-center gap-2 mb-8 flex-wrap">
+                            <span class="portfolio-tag px-3 py-1 bg-white/20 rounded-xl text-xs backdrop-blur">Animation</span>
+                            <span class="portfolio-tag px-3 py-1 bg-white/20 rounded-xl text-xs backdrop-blur">Motion</span>
+                        </div>
+                        <h3 class="font-playfair text-2xl mb-4">Product Launch Animation</h3>
+                        <p class="mb-8 opacity-90">3D product reveal animation for a tech company launch event.</p>
+                        <a href="#" class="portfolio-view-btn px-8 py-3 bg-white/20 text-white border border-white/30 rounded-[25px] font-medium transition-all duration-300 backdrop-blur hover:bg-white hover:text-dark-green">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item featured-item rounded-[25px] overflow-hidden h-[350px] cursor-pointer transition-all duration-500 shadow-xl animate-on-scroll relative" data-category="video">
+                    <div class="portfolio-bg absolute inset-0 opacity-90 transition-all duration-500 bg-gradient-to-br from-coral to-orange"></div>
+                    <div class="portfolio-content absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-[2] w-[90%]">
+                        <div class="portfolio-tags flex justify-center gap-2 mb-8 flex-wrap">
+                            <span class="portfolio-tag px-3 py-1 bg-white/20 rounded-xl text-xs backdrop-blur">Video</span>
+                            <span class="portfolio-tag px-3 py-1 bg-white/20 rounded-xl text-xs backdrop-blur">Editing</span>
+                        </div>
+                        <h3 class="font-playfair text-2xl mb-4">Documentary Film</h3>
+                        <p class="mb-8 opacity-90">Feature-length documentary editing with color grading and sound design.</p>
+                        <a href="#" class="portfolio-view-btn px-8 py-3 bg-white/20 text-white border border-white/30 rounded-[25px] font-medium transition-all duration-300 backdrop-blur hover:bg-white hover:text-dark-green">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item featured-item rounded-[25px] overflow-hidden h-[350px] cursor-pointer transition-all duration-500 shadow-xl animate-on-scroll relative" data-category="graphic">
+                    <div class="portfolio-bg absolute inset-0 opacity-90 transition-all duration-500 bg-gradient-to-br from-dark-green to-teal"></div>
+                    <div class="portfolio-content absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-[2] w-[90%]">
+                        <div class="portfolio-tags flex justify-center gap-2 mb-8 flex-wrap">
+                            <span class="portfolio-tag px-3 py-1 bg-white/20 rounded-xl text-xs backdrop-blur">Packaging</span>
+                            <span class="portfolio-tag px-3 py-1 bg-white/20 rounded-xl text-xs backdrop-blur">Print</span>
+                        </div>
+                        <h3 class="font-playfair text-2xl mb-4">Organic Food Packaging</h3>
+                        <p class="mb-8 opacity-90">Sustainable packaging design for an organic food brand.</p>
+                        <a href="#" class="portfolio-view-btn px-8 py-3 bg-white/20 text-white border border-white/30 rounded-[25px] font-medium transition-all duration-300 backdrop-blur hover:bg-white hover:text-dark-green">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item featured-item rounded-[25px] overflow-hidden h-[350px] cursor-pointer transition-all duration-500 shadow-xl animate-on-scroll relative" data-category="motion">
+                    <div class="portfolio-bg absolute inset-0 opacity-90 transition-all duration-500 bg-gradient-to-br from-orange to-coral"></div>
+                    <div class="portfolio-content absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-[2] w-[90%]">
+                        <div class="portfolio-tags flex justify-center gap-2 mb-8 flex-wrap">
+                            <span class="portfolio-tag px-3 py-1 bg-white/20 rounded-xl text-xs backdrop-blur">Motion</span>
+                            <span class="portfolio-tag px-3 py-1 bg-white/20 rounded-xl text-xs backdrop-blur">Typography</span>
+                        </div>
+                        <h3 class="font-playfair text-2xl mb-4">Kinetic Typography</h3>
+                        <p class="mb-8 opacity-90">Animated typography sequence for a music festival promotional video.</p>
+                        <a href="#" class="portfolio-view-btn px-8 py-3 bg-white/20 text-white border border-white/30 rounded-[25px] font-medium transition-all duration-300 backdrop-blur hover:bg-white hover:text-dark-green">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item featured-item rounded-[25px] overflow-hidden h-[350px] cursor-pointer transition-all duration-500 shadow-xl animate-on-scroll relative" data-category="video">
+                    <div class="portfolio-bg absolute inset-0 opacity-90 transition-all duration-500 bg-gradient-to-br from-teal to-yellow"></div>
+                    <div class="portfolio-content absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-[2] w-[90%]">
+                        <div class="portfolio-tags flex justify-center gap-2 mb-8 flex-wrap">
+                            <span class="portfolio-tag px-3 py-1 bg-white/20 rounded-xl text-xs backdrop-blur">Commercial</span>
+                            <span class="portfolio-tag px-3 py-1 bg-white/20 rounded-xl text-xs backdrop-blur">Editing</span>
+                        </div>
+                        <h3 class="font-playfair text-2xl mb-4">Product Commercial</h3>
+                        <p class="mb-8 opacity-90">60-second commercial spot for a luxury skincare brand launch.</p>
+                        <a href="#" class="portfolio-view-btn px-8 py-3 bg-white/20 text-white border border-white/30 rounded-[25px] font-medium transition-all duration-300 backdrop-blur hover:bg-white hover:text-dark-green">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Video Showcase Section -->
+    <section class="video-showcase py-20 px-6 md:px-12 bg-cream">
+        <div class="container max-w-[1400px] mx-auto">
+            <h2 class="section-title font-playfair font-bold text-3xl md:text-4xl text-center mb-16 relative animate-on-scroll">Motion & Video Showcase</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="video-container animate-on-scroll">
+                    <iframe src="https://www.youtube.com/embed/pRpeEdMmmQ0?si=fIwgXkUVu_7W1X6P" title="Motion Design Showreel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-container animate-on-scroll">
+                    <iframe src="https://www.youtube.com/embed/9bZkp7q19f0" title="Video Editing Showreel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Work Section -->
+     <section id="design-work" class="design-work py-20 px-6 md:px-12 bg-gradient-to-br from-light-teal/50 to-yellow/5">
+        <div class="container max-w-[1400px] mx-auto">
+            <h2 class="section-title font-playfair font-bold text-3xl md:text-4xl text-center mb-16 relative animate-on-scroll">Design & Artwork</h2>
+            <div class="artwork-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-16">
+                <div class="artwork-item rounded-2xl overflow-hidden h-[400px] cursor-pointer transition-all duration-500 shadow-lg animate-on-scroll hover:-translate-y-3 hover:shadow-xl relative">
+                    <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?q=80&w=800" alt="Abstract Artwork" class="artwork-img w-full h-full object-cover transition-all duration-500 hover:scale-105">
+                    <div class="artwork-overlay absolute inset-0 flex flex-col justify-center items-center p-8 text-center bg-dark-overlay">
+                        <h3 class="artwork-title font-playfair text-[1.8rem] text-cream mb-4">Abstract Fusion</h3>
+                        <div class="artwork-category text-yellow font-medium text-sm uppercase tracking-wider mb-6">Digital Art</div>
+                        <a href="#" class="view-btn px-8 py-3 bg-transparent text-cream border-2 border-yellow rounded-full font-medium transition-all duration-300 hover:bg-yellow hover:text-dark-green">View Full Design</a>
+                    </div>
+                </div>
+                
+                <div class="artwork-item rounded-2xl overflow-hidden h-[400px] cursor-pointer transition-all duration-500 shadow-lg animate-on-scroll hover:-translate-y-3 hover:shadow-xl relative">
+                    <img src="https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=800" alt="Typography Design" class="artwork-img w-full h-full object-cover transition-all duration-500 hover:scale-105">
+                    <div class="artwork-overlay absolute inset-0 flex flex-col justify-center items-center p-8 text-center bg-dark-overlay">
+                        <h3 class="artwork-title font-playfair text-[1.8rem] text-cream mb-4">Modern Typography</h3>
+                        <div class="artwork-category text-yellow font-medium text-sm uppercase tracking-wider mb-6">Typography Design</div>
+                        <a href="#" class="view-btn px-8 py-3 bg-transparent text-cream border-2 border-yellow rounded-full font-medium transition-all duration-300 hover:bg-yellow hover:text-dark-green">View Full Design</a>
+                    </div>
+                </div>
+                
+                <div class="artwork-item rounded-2xl overflow-hidden h-[400px] cursor-pointer transition-all duration-500 shadow-lg animate-on-scroll hover:-translate-y-3 hover:shadow-xl relative">
+                    <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800" alt="Brand Identity" class="artwork-img w-full h-full object-cover transition-all duration-500 hover:scale-105">
+                    <div class="artwork-overlay absolute inset-0 flex flex-col justify-center items-center p-8 text-center bg-dark-overlay">
+                        <h3 class="artwork-title font-playfair text-[1.8rem] text-cream mb-4">Brand Identity System</h3>
+                        <div class="artwork-category text-yellow font-medium text-sm uppercase tracking-wider mb-6">Branding</div>
+                        <a href="#" class="view-btn px-8 py-3 bg-transparent text-cream border-2 border-yellow rounded-full font-medium transition-all duration-300 hover:bg-yellow hover:text-dark-green">View Full Design</a>
+                    </div>
+                </div>
+                
+                <div class="artwork-item rounded-2xl overflow-hidden h-[400px] cursor-pointer transition-all duration-500 shadow-lg animate-on-scroll hover:-translate-y-3 hover:shadow-xl relative">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800" alt="Packaging Design" class="artwork-img w-full h-full object-cover transition-all duration-500 hover:scale-105">
+                    <div class="artwork-overlay absolute inset-0 flex flex-col justify-center items-center p-8 text-center bg-dark-overlay">
+                        <h3 class="artwork-title font-playfair text-[1.8rem] text-cream mb-4">Eco Packaging</h3>
+                        <div class="artwork-category text-yellow font-medium text-sm uppercase tracking-wider mb-6">Packaging Design</div>
+                        <a href="#" class="view-btn px-8 py-3 bg-transparent text-cream border-2 border-yellow rounded-full font-medium transition-all duration-300 hover:bg-yellow hover:text-dark-green">View Full Design</a>
+                    </div>
+                </div>
+                
+                <div class="artwork-item rounded-2xl overflow-hidden h-[400px] cursor-pointer transition-all duration-500 shadow-lg animate-on-scroll hover:-translate-y-3 hover:shadow-xl relative">
+                    <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?q=80&w=800" alt="Pattern Design" class="artwork-img w-full h-full object-cover transition-all duration-500 hover:scale-105">
+                    <div class="artwork-overlay absolute inset-0 flex flex-col justify-center items-center p-8 text-center bg-dark-overlay">
+                        <h3 class="artwork-title font-playfair text-[1.8rem] text-cream mb-4">Geometric Patterns</h3>
+                        <div class="artwork-category text-yellow font-medium text-sm uppercase tracking-wider mb-6">Surface Design</div>
+                        <a href="#" class="view-btn px-8 py-3 bg-transparent text-cream border-2 border-yellow rounded-full font-medium transition-all duration-300 hover:bg-yellow hover:text-dark-green">View Full Design</a>
+                    </div>
+                </div>
+                
+                <div class="artwork-item rounded-2xl overflow-hidden h-[400px] cursor-pointer transition-all duration-500 shadow-lg animate-on-scroll hover:-translate-y-3 hover:shadow-xl relative">
+                    <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=800" alt="Illustration" class="artwork-img w-full h-full object-cover transition-all duration-500 hover:scale-105">
+                    <div class="artwork-overlay absolute inset-0 flex flex-col justify-center items-center p-8 text-center bg-dark-overlay">
+                        <h3 class="artwork-title font-playfair text-[1.8rem] text-cream mb-4">Character Illustration</h3>
+                        <div class="artwork-category text-yellow font-medium text-sm uppercase tracking-wider mb-6">Illustration</div>
+                        <a href="#" class="view-btn px-8 py-3 bg-transparent text-cream border-2 border-yellow rounded-full font-medium transition-all duration-300 hover:bg-yellow hover:text-dark-green">View Full Design</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact py-20 md:py-28 px-6 md:px-12 bg-dark-green text-cream relative overflow-hidden">
+        <div class="container max-w-[1400px] mx-auto">
+            <h2 class="section-title font-playfair font-bold text-3xl md:text-4xl text-center mb-16 relative text-cream animate-on-scroll">Let's Create Something Amazing</h2>
+            <div class="contact-content grid grid-cols-1 lg:grid-cols-2 gap-16 mt-24 relative z-[2]">
+                <div class="contact-info fade-in-left">
+                    <h3 class="font-playfair text-3xl md:text-[2.5rem] mb-8 text-yellow">Ready to Start Your Project?</h3>
+                    <p class="text-lg opacity-90 mb-12 leading-relaxed">I'm always excited to work on new projects and collaborate with creative minds. Whether you need a complete brand identity, animation sequence, or video production, let's discuss how we can bring your vision to life.</p>
+                    
+                    <div class="contact-item flex items-center mb-8 p-6 bg-teal/10 rounded-xl transition-all duration-300 hover:bg-teal/20 hover:translate-x-2">
+                        <i class="fas fa-envelope text-coral text-2xl mr-6 w-8"></i>
+                        <div>
+                            <strong>Email</strong><br>
+                            ravranimansi2@gmail.com
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item flex items-center mb-8 p-6 bg-teal/10 rounded-xl transition-all duration-300 hover:bg-teal/20 hover:translate-x-2">
+                        <i class="fas fa-calendar-alt text-coral text-2xl mr-6 w-8"></i>
+                        <div>
+                            <strong>Availability</strong><br>
+                            Currently accepting new projects
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item flex items-center p-6 bg-teal/10 rounded-xl transition-all duration-300 hover:bg-teal/20 hover:translate-x-2">
+                        <i class="fas fa-map-marker-alt text-coral text-2xl mr-6 w-8"></i>
+                        <div>
+                            <strong>Location</strong><br>
+                            India
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <div id="contactFormContainer">
+                        <div class="contact-form bg-cream/10 p-8 md:p-16 rounded-[25px] backdrop-blur-md border border-cream/10 fade-in-right">
+                            <form id="contactForm" action="https://formsubmit.co/ravranimansi2@gmail.com" method="POST">
+                                <input type="hidden" name="_captcha" value="false">
+                                <input type="hidden" name="_subject" value="New Project Inquiry from Portfolio">
+                                <input type="hidden" name="_template" value="table">
+                                
+                                <div class="form-row grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                                    <div class="form-group mb-8">
+                                        <input type="text" name="name" placeholder="Your Name" class="w-full p-5 border-2 border-cream/20 rounded-xl bg-cream/10 text-cream text-lg transition-all duration-300 focus:border-teal focus:bg-cream/15" required>
+                                    </div>
+                                    <div class="form-group mb-8">
+                                        <input type="email" name="email" placeholder="Your Email" class="w-full p-5 border-2 border-cream/20 rounded-xl bg-cream/10 text-cream text-lg transition-all duration-300 focus:border-teal focus:bg-cream/15" required>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-8">
+                                    <input type="text" name="project-type" placeholder="Project Type" class="w-full p-5 border-2 border-cream/20 rounded-xl bg-cream/10 text-cream text-lg transition-all duration-300 focus:border-teal focus:bg-cream/15">
+                                </div>
+                                <div class="form-group mb-8">
+                                    <input type="text" name="budget" placeholder="Budget Range" class="w-full p-5 border-2 border-cream/20 rounded-xl bg-cream/10 text-cream text-lg transition-all duration-300 focus:border-teal focus:bg-cream/15">
+                                </div>
+                                <div class="form-group mb-8">
+                                    <textarea rows="5" name="message" placeholder="Tell me about your project vision, goals, and timeline..." class="w-full p-5 border-2 border-cream/20 rounded-xl bg-cream/10 text-cream text-lg transition-all duration-300 focus:border-teal focus:bg-cream/15" required></textarea>
+                                </div>
+                                <button type="submit" class="submit-btn w-full p-5 border-none rounded-xl bg-gradient-to-br from-coral to-orange text-white text-xl font-semibold cursor-pointer transition-all duration-400 relative overflow-hidden hover:shadow-xl">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Success Message -->
+                    <div id="successMessage" class="success-message fade-in-right">
+                        <i class="fas fa-check-circle success-icon"></i>
+                        <h3 class="font-playfair text-[2.5rem]">Thank You!</h3>
+                        <p>Your message has been sent successfully. I'll get back to you within 24 hours. In the meantime, feel free to explore more of my work.</p>
+                        <button id="backToForm" class="px-8 py-4 text-cream font-semibold rounded-full bg-transparent border-2 border-yellow transition-all duration-400 hover:bg-yellow hover:text-dark-green mt-6">Send Another Message</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 md:px-12 text-center bg-[#1a2327] text-cream relative">
+        <div class="footer-content max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+            <div class="footer-section">
+                <h4 class="font-playfair text-xl mb-4 text-yellow">Mansi Ravrani</h4>
+                <p>Creating meaningful visual experiences through thoughtful design, motion, and video.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="font-playfair text-xl mb-4 text-yellow">Services</h4>
+                <p>Graphic Design • Motion Graphics<br>Video Editing • Brand Identity</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="font-playfair text-xl mb-4 text-yellow">Connect</h4>
+                <div class="social-links flex justify-center gap-6 mt-8">
+                    <a href="#" class="social-link behance">
+                        <i class="fab fa-behance social-icon"></i>
+                    </a>
+                    <a href="#" class="social-link dribbble">
+                        <i class="fab fa-dribbble social-icon"></i>
+                    </a>
+                    <a href="#" class="social-link youtube">
+                        <i class="fab fa-youtube social-icon"></i>
+                    </a>
+                    <a href="#" class="social-link vimeo">
+                        <i class="fab fa-vimeo-v social-icon"></i>
+                    </a>
+                    <a href="#" class="social-link linkedin">
+                        <i class="fab fa-linkedin social-icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <p>&copy; 2024 Mansi Ravrani. All rights reserved. Crafted with creativity and passion.</p>
+    </footer>
+
+    <script>
+        // Loading animation
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 1000);
+        });
+
+        // Custom cursor
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('py-4', 'md:py-3', 'bg-cream/98', 'shadow-xl');
+                navbar.classList.remove('py-6');
+            } else {
+                navbar.classList.remove('py-4', 'md:py-3', 'bg-cream/98', 'shadow-xl');
+                navbar.classList.add('py-6');
+            }
+        });
+
+        // Mobile navigation
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.remove('-right-full');
+            mobileNav.classList.add('right-0');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMobileMenu.addEventListener('click', () => {
+            mobileNav.classList.remove('right-0');
+            mobileNav.classList.add('-right-full');
+            document.body.style.overflow = '';
+        });
+        
+        // Close mobile nav when clicking links
+        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('right-0');
+                mobileNav.classList.add('-right-full');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll, .fade-in-left, .fade-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Portfolio filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        // Set initial active state
+        document.querySelector('.filter-btn.active').classList.add('bg-teal', 'text-white');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-teal', 'text-white', 'active');
+                    b.classList.add('bg-transparent', 'text-teal');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('bg-teal', 'text-white', 'active');
+                this.classList.remove('bg-transparent', 'text-teal');
+                
+                const filter = this.getAttribute('data-filter');
+                
+                // Handle "All Work" case
+                if (filter === 'all') {
+                    portfolioItems.forEach(item => {
+                        item.style.display = 'block';
+                    });
+                } else {
+                    portfolioItems.forEach(item => {
+                        const category = item.getAttribute('data-category');
+                        if (category === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Add loading state to submit button
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Create form data
+            const formData = new FormData(this);
+            
+            // Simulate form submission (since FormSubmit requires actual HTTP request)
+            setTimeout(() => {
+                // Show success message
+                document.getElementById('contactFormContainer').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+                
+                // Reset button
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                
+                // Reset form
+                this.reset();
+            }, 1500);
+        });
+
+        // Back to form button
+        document.getElementById('backToForm').addEventListener('click', function() {
+            document.getElementById('successMessage').style.display = 'none';
+            document.getElementById('contactFormContainer').style.display = 'block';
+        });
+
+        // Interactive portfolio hover effects
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+                this.querySelector('.portfolio-bg').style.opacity = '0.95';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.querySelector('.portfolio-bg').style.opacity = '0.9';
+            });
+        });
+
+        // Service card interactive effects
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px)';
+                this.querySelector('.service-icon').style.transform = 'rotateY(360deg)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.querySelector('.service-icon').style.transform = 'rotateY(0deg)';
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroCircle = document.querySelector('.hero-circle');
+            if (heroCircle) {
+                heroCircle.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
